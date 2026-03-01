@@ -26,6 +26,7 @@
 #include <windows.h>
 #include <shlobj.h>
 #include <shellapi.h>
+#include "utils/wmi_helper.hpp"
 #endif
 #include "utils/vm_args.hpp"
 #include <boost/program_options.hpp>
@@ -449,6 +450,30 @@ static bool sanity_check_npu_stack(bool quiet, bool json_output = false) {
 #endif
 }
 
+
+std::string get_driver_version(const std::string& device_name) {
+    std::string driver_version;
+#ifdef _WIN32
+    wmi::WMIConnection wmi;
+    if (!wmi.is_valid()) {
+        return "";
+    }
+
+    std::wstring query = L"SELECT * FROM Win32_PnPSignedDriver WHERE DeviceName LIKE '%" +
+        wmi::string_to_wstring(device_name) + L"%'";
+
+    wmi.query(query, [&driver_version](IWbemClassObject* pObj) {
+        if (driver_version.empty()) {  // Only get first match
+            driver_version = wmi::get_property_string(pObj, L"DriverVersion");
+        }
+        });
+#elif
+    driver_version = "";
+#endif
+
+    return driver_version;
+}
+
 ///@brief main function
 ///@param argc the number of arguments
 ///@param argv the arguments
@@ -537,6 +562,16 @@ int main(int argc, char* argv[]) {
             std::cout << "{ \"port\": " << get_server_port(parsed_args.port) << " }" << std::endl;
         } else {
             std::cout << "Server Port: " << get_server_port(parsed_args.port) << std::endl;
+        }
+        return 0;
+    }
+
+    if (parsed_args.command == "driver") {
+        if (parsed_args.json_output) {
+            std::cout << "{ \"NPU Driver Version\": \"" << get_driver_version("NPU Compute Accelerator Device") << "\" }" << std::endl;
+        }
+        else {
+            std::cout << "NPU Driver Version: " << get_driver_version("NPU Compute Accelerator Device") << std::endl;
         }
         return 0;
     }
