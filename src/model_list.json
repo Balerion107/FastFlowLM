@@ -23,7 +23,8 @@
                     "think": false,
                     "parameter_size": "4B",
                     "quantization_level": "Q4_1"
-                }
+                },
+                "footprint": 3.9
             }
         },
         "lfm2": {
@@ -48,7 +49,8 @@
                     "model.q4nx",
                     "tokenizer.json",
                     "tokenizer_config.json"
-                ]
+                ],
+                "footprint": 0.96
             },
             "2.6b": {
                 "name": "LFM2-2.6B-NPU2",
@@ -71,7 +73,8 @@
                     "model.q4nx",
                     "tokenizer.json",
                     "tokenizer_config.json"
-                ]
+                ],
+                "footprint": 1.8
             }
         },
         "lfm2-trans": {
@@ -96,7 +99,8 @@
                     "model.q4nx",
                     "tokenizer.json",
                     "tokenizer_config.json"
-                ]
+                ],
+                "footprint": 1.8
             }
         },
         "lfm2.5-it": {
@@ -121,7 +125,8 @@
                     "model.q4nx",
                     "tokenizer.json",
                     "tokenizer_config.json"
-                ]
+                ],
+                "footprint": 0.96
             }
         },
         "lfm2.5-tk": {
@@ -147,7 +152,8 @@
                     "tokenizer.json",
                     "tokenizer_config.json",
                     "chat_template.jinja"
-                ]
+                ],
+                "footprint": 0.96
             }
         },
         "phi4-mini-it": {
@@ -171,7 +177,8 @@
                     "model.q4nx",
                     "tokenizer.json",
                     "tokenizer_config.json"
-                ]
+                ],
+                "footprint": 3.4
             }
         },
         "embed-gemma": {
@@ -194,7 +201,8 @@
                     "think": false,
                     "parameter_size": "300M",
                     "quantization_level": "none"
-                }
+                },
+                "footprint": 0.62
             }
         },
         "whisper-v3": {
@@ -217,7 +225,8 @@
                     "think": false,
                     "parameter_size": "1B",
                     "quantization_level": "Q4_1"
-                }
+                },
+                "footprint": 0.62
             }
         },
         "gemma3": {
@@ -241,7 +250,8 @@
                     "think_toggleable": false,
                     "parameter_size": "1B",
                     "quantization_level": "Q4_1"
-                }
+                },
+                "footprint": 1.2
             },
             "4b": {
                 "name": "Gemma3-4B-NPU2",
@@ -265,7 +275,8 @@
                     "think_toggleable": false,
                     "parameter_size": "4B",
                     "quantization_level": "Q4_1"
-                }
+                },
+                "footprint": 4.5
             }
         },
         "translategemma": {
@@ -291,7 +302,8 @@
                     "think_toggleable": false,
                     "parameter_size": "4B",
                     "quantization_level": "Q4_1"
-                }
+                },
+                "footprint": 4.5
             }
         },
         "medgemma": {
@@ -317,7 +329,8 @@
                     "think_toggleable": false,
                     "parameter_size": "4B",
                     "quantization_level": "Q4_1"
-                }
+                },
+                "footprint": 4.5
             }
         },
         "medgemma1.5": {
@@ -343,7 +356,8 @@
                     "think_toggleable": false,
                     "parameter_size": "4B",
                     "quantization_level": "Q4_1"
-                }
+                },
+                "footprint": 4.5
             }
         },
         "llama3.2": {
@@ -366,7 +380,8 @@
                     "think": false,
                     "parameter_size": "1B",
                     "quantization_level": "Q4_1"
-                }
+                },
+                "footprint": 1.3
             },
             "3b": {
                 "name": "Llama-3.2-3B-NPU2",
@@ -387,7 +402,8 @@
                     "think": false,
                     "parameter_size": "3B",
                     "quantization_level": "Q4_1"
-                }
+                },
+                "footprint": 2.7
             }
         },
         "llama3.1": {
@@ -410,7 +426,8 @@
                     "think": false,
                     "parameter_size": "8B",
                     "quantization_level": "Q4_1"
-                }
+                },
+                "footprint": 5.4
             }
         },
         "deepseek-r1": {
@@ -433,7 +450,8 @@
                     "think": true,
                     "parameter_size": "8B",
                     "quantization_level": "Q4_1"
-                }
+                },
+                "footprint": 5.4
             }
         },
         "deepseek-r1-0528": {
@@ -457,7 +475,8 @@
                     "think_toggleable": false,
                     "parameter_size": "8B",
                     "quantization_level": "Q4_1"
-                }
+                },
+                "footprint": 5.6
             }
         },
         "qwen3": {
@@ -481,7 +500,8 @@
                     "think_toggleable": true,
                     "parameter_size": "0.6B",
                     "quantization_level": "Q4_1"
-                }
+                },
+                "footprint": 0.66
             },
             "1.7b": {
                 "name": "Qwen3-1.7B-NPU2",
@@ -503,7 +523,8 @@
                     "think_toggleable": true,
                     "parameter_size": "1.7B",
                     "quantization_level": "Q4_1"
-                }
+                },
+                "footprint": 1.6
             },
             "4b": {
                 "name": "Qwen3-4B-NPU2",
@@ -525,7 +546,8 @@
                     "think_toggleable": true,
                     "parameter_size": "4B",
                     "quantization_level": "Q4_1"
-                }
+                },
+                "footprint": 3.1
             },
             "8b": {
                 "name": "Qwen3-8B-NPU2",
@@ -547,7 +569,8 @@
                     "think_toggleable": true,
                     "parameter_size": "8B",
                     "quantization_level": "Q4_1"
-                }
+                },
+                "footprint": 5.6
             }
         },
         "qwen3-tk": {
@@ -571,7 +594,8 @@
                     "think_toggleable": false,
                     "parameter_size": "4B",
                     "quantization_level": "Q4_1"
-                }
+                },
+                "footprint": 3.1
             }
         },
         "qwen3-it": {
@@ -595,7 +619,8 @@
                     "think_toggleable": false,
                     "parameter_size": "4B",
                     "quantization_level": "Q4_1"
-                }
+                },
+                "footprint": 3.1
             }
         },
         "gpt-oss": {
@@ -619,7 +644,8 @@
                     "think_toggleable": false,
                     "parameter_size": "20B",
                     "quantization_level": "Q4_1"
-                }
+                },
+                "footprint": 14.0
             }
         },
         "gpt-oss-sg": {
@@ -643,7 +669,8 @@
                     "think_toggleable": false,
                     "parameter_size": "20B",
                     "quantization_level": "Q4_1"
-                }
+                },
+                "footprint": 14.0
             }
         },
         "qwen2.5-it": {
@@ -667,7 +694,8 @@
                     "think_toggleable": false,
                     "parameter_size": "3B",
                     "quantization_level": "Q4_0"
-                }
+                },
+                "footprint": 2.5
             }
         },
         "qwen2.5vl-it": {
@@ -685,6 +713,7 @@
                     "tokenizer_config.json",
                     "vision_weights.q4nx"
                 ],
+                "vlm": true,
                 "default_context_length": 32768,
                 "details": {
                     "family": "qwen2vl",
@@ -692,7 +721,8 @@
                     "think_toggleable": false,
                     "parameter_size": "3B",
                     "quantization_level": "Q4_1"
-                }
+                },
+                "footprint": 3.8
             }
         }
     }
