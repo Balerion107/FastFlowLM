@@ -91,9 +91,18 @@ static bool has_valid_jpeg_structure(const uint8_t* data, size_t size) {
         return false;
     }
 
-    // if (!(data[size - 2] == 0xFF && data[size - 1] == 0xD9)) {
-    //     return false;
-    // }
+    bool found_eoi = false;
+
+    for (size_t i = size - 2; i >= 2; --i) {
+        if (data[i] == 0xFF && data[i + 1] == 0xD9) {
+            found_eoi = true;
+            break;
+        }
+    }
+
+    if (!found_eoi) {
+        return false;
+    }
 
     bool saw_sos = false;
     size_t pos = 2;
@@ -112,7 +121,7 @@ static bool has_valid_jpeg_structure(const uint8_t* data, size_t size) {
 
         const uint8_t marker = data[pos++];
         if (marker == 0xD9) {
-            return saw_sos;
+            return saw_sos && (pos == size);
         }
 
         if (marker == 0xDA) {
