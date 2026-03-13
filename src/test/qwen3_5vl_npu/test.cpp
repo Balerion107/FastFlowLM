@@ -77,7 +77,7 @@ int main(int argc, char* argv[]) {
         // uniformed_input.images.push_back("../../../tb_files/pcb.jpg");
         
         std::cout << "Prompt: " << uniformed_input.prompt << std::endl;
-        std::cout << "Response: ";
+        std::cout << "Response: " << std::endl;
         chat->start_total_timer();
         std::string response = chat->generate_with_prompt(meta_info, uniformed_input, 1024, std::cout);
         chat->stop_total_timer();
