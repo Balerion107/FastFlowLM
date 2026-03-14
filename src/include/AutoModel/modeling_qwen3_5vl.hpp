@@ -112,17 +112,3 @@ public:
 		return false;
 	}
 };
-
-
-/************              Qwen3_5VL_Thinking            **************/
-class Qwen3_5VL_Thinking : public Qwen3_5VL {
-    private:
-        int think_marker_id;
-    
-    public:
-        Qwen3_5VL_Thinking(xrt::device* npu_device_inst) : Qwen3_5VL(npu_device_inst) {
-    
-        }
-        std::string generate(chat_meta_info_t& meta_info, int length_limit, std::ostream& os, std::function<bool()> is_cancelled = [] { return false; }) override;
-        std::string generate_with_prompt(chat_meta_info_t& meta_info, lm_uniform_input_t& input, int length_limit, std::ostream& os = std::cout) override;
-    };

@@ -9,17 +9,17 @@ xrt::device npu_device_global;
 
 // Model-specific factory function for Qwen family and DeepSeek_r1_0528_8b
 inline std::pair<std::string, std::unique_ptr<AutoModel>> get_qwen3_5vl_model(const std::string& model_tag) {
-    static std::unordered_set<std::string> qwen3vl_it_Tags = {
-        "qwen3-5vl", "qwen3-5vl:4b"
+    static std::unordered_set<std::string> qwen3_5_Tags = {
+        "qwen3.5", "qwen3.5:4b"
     };
 
     std::unique_ptr<AutoModel> auto_chat_engine = nullptr;
     std::string new_model_tag = model_tag;
-    if (qwen3vl_it_Tags.count(model_tag))
+    if (qwen3_5_Tags.count(model_tag))
         auto_chat_engine = std::make_unique<Qwen3_5VL>(&npu_device_global);
     else {
-        new_model_tag = "qwen3-5vl:4b"; // Default to base Qwen3_5VL model
-        auto_chat_engine = std::make_unique<Qwen3_5VL_Thinking>(&npu_device_global);
+        new_model_tag = "qwen3.5:4b"; // Default to base Qwen3_5VL model
+        auto_chat_engine = std::make_unique<Qwen3_5VL>(&npu_device_global);
     }
   
     return std::make_pair(new_model_tag, std::move(auto_chat_engine));
@@ -67,8 +67,9 @@ int main(int argc, char* argv[]) {
     chat->set_topk(1);
 
     if (short_prompt) {
-        uniformed_input.prompt = "What is this?";
+        uniformed_input.prompt = "What are these?";
         uniformed_input.images.push_back("../../../tb_files/panda.png");
+        uniformed_input.images.push_back("../../../tb_files/puppy.png");
         
         // uniformed_input.images.push_back("../../../tb_files/mj_icon.jpg");
         // uniformed_input.images.push_back("../../../tb_files/google_icon.png");

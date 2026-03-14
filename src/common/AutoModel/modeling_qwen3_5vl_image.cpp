@@ -240,6 +240,6 @@ void Qwen3_5VL::preprocess_image(qwen3_5vl_image_t& image, std::vector<bf16> &pi
     image.grid_h = grid_h;
     image.grid_w = grid_w;
     image._data.free(); // free the data
-    std::cout << "DEBUG: Finished preprocessing image. Original size: (" << width << ", " << height << "), Resized size: (" << resized_width << ", " << resized_height << "), Grid size: (" << grid_h << ", " << grid_w << ")\n";
+    // std::cout << "DEBUG: Finished preprocessing image. Original size: (" << width << ", " << height << "), Resized size: (" << resized_width << ", " << resized_height << "), Grid size: (" << grid_h << ", " << grid_w << ")\n";
     // release the original uint8_t data now, since is no longer useful to us
 }
